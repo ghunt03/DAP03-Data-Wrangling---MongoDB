@@ -18,7 +18,7 @@ cityData = []
 coordinates = []
 amenity_map = {}
 AMENITYTAGS = ('amenity', "bus", "bus_stop", "ferry", "rail", "railway", "historic", "leisure", "tourism") 
-
+address_error_count = 0
 
 
 tag_keys = {}
@@ -374,6 +374,7 @@ def shape_element(element):
     return node
 
 def audit_map(file_in):
+
     nodes = []
     context = ET.iterparse(file_in, events=("start", "end"))
     context = iter(context)
@@ -386,7 +387,7 @@ def audit_map(file_in):
             element.clear()
         
     root.clear()
-    pprint.pprint(tag_keys)
+    pprint.pprint(tag_keys)    
 
 
 def process_map(file_in):

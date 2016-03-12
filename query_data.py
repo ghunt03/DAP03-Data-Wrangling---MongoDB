@@ -15,14 +15,22 @@ def getBounds():
 
 
 def get_db():
+	''' Creates a connection to the MongoDB server running 
+	on the localhost
+	'''
     client = MongoClient('localhost:27017')
     db = client.osm
     return db
 
 def get_results(db, query):
+	''' Takes the connection to the database and the query and 
+	returns the aggregated results
+	'''
 	return db.sydney.aggregate(query)
 
 def print_results(results):
+	''' Prints the results of the aggregated data
+	'''
 	for row in results:
 		print row
 
@@ -47,8 +55,10 @@ def amenity_query():
 
 def sports_query():
 	query = [
+		{"$unwind": "$sport_type"},
 		{"$group" : {"_id": "$sport_type", "count": { "$sum" : 1}}},
-		{"$sort"  : {"count": -1}}
+		{"$sort"  : {"count": -1}},
+		{"$limit" : 10}
 	]
 	return query
 

@@ -10,10 +10,10 @@ import json
 CITYDATAFILE = "data_suburbs.txt"
 AMENITYDATAFILE = "data_amenity_map.csv"
 CREATED = [ "version", "changeset", "timestamp", "user", "uid"]
-OSMFILE = "map.osm"
+OSMFILE = "sample.osm"
 UPDATE = True
 GEOCODE = True
-PREPDATA = True
+PREPDATA = False
 cityData = []
 coordinates = []
 amenity_map = {}

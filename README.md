@@ -14,5 +14,5 @@ This repository contains:
 
 An online version of the report can be viewed [here][report]
 
-[report]: /DAProjects/DAP03/DataAnalysisProject3WrangleOpenStreetMapData.html
+[report]: http://ghunt03.github.io/DAProjects/DAP03/DataAnalysisProject3WrangleOpenStreetMapData.html
 

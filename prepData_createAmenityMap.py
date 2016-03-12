@@ -215,7 +215,7 @@ amenity_map = {
 }
 
 
-file_out = "amenity_map.csv"
+file_out = "data_amenity_map.csv"
 with codecs.open(file_out, "w") as fo:
 	writer = csv.writer(fo)
 	for key, value in amenity_map.iteritems():

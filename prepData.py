@@ -7,13 +7,19 @@ import numpy as np
 import codecs
 import json
 
+# Change UPDATE to False to see original data format
+UPDATE = True
+# Change GEOCODE to False to skip Geo-coding (helps with speed)
+GEOCODE = True
+
+# Change PREPDATA to True to generate JSON file otherwise change to false for auditing
+PREPDATA = False
+
 CITYDATAFILE = "data_suburbs.txt"
 AMENITYDATAFILE = "data_amenity_map.csv"
 CREATED = [ "version", "changeset", "timestamp", "user", "uid"]
 OSMFILE = "sample.osm"
-UPDATE = True
-GEOCODE = True
-PREPDATA = False
+
 cityData = []
 coordinates = []
 amenity_map = {}
@@ -374,7 +380,11 @@ def shape_element(element):
     return node
 
 def audit_map(file_in):
-
+    ''' Function for auditing data
+    tag_keys allows for data to be grouped / audited. 
+    To populate tag_keys add addToKeyCheck(value) to the relevant field 
+    that needs to be audited
+    '''
     nodes = []
     context = ET.iterparse(file_in, events=("start", "end"))
     context = iter(context)
